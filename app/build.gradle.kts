@@ -57,6 +57,16 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
 
+    //Glide
+    val glideVersion = "4.12.0"
+    implementation ("com.github.bumptech.glide:glide:$glideVersion")
+    annotationProcessor ("com.github.bumptech.glide:compiler:$glideVersion")
+
+    // Coroutines
+    val coroutinesVersion = "1.6.4"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
