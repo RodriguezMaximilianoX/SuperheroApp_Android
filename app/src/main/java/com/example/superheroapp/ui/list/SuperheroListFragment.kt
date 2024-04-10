@@ -31,7 +31,9 @@ class SuperheroListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = SuperheroAdapter()
+        adapter = SuperheroAdapter(onClickListener = {
+
+        })
         binding.rvSuperhero.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSuperhero.adapter = adapter
         viewModel.superheroes.observe(viewLifecycleOwner, Observer {

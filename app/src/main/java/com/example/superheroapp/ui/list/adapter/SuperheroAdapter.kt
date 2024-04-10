@@ -7,7 +7,8 @@ import com.example.superheroapp.R
 import com.example.superheroapp.domain.model.SuperheroModel
 
 class SuperheroAdapter(
-    private var superheroList: List<SuperheroModel> = emptyList()
+    private var superheroList: List<SuperheroModel> = emptyList(),
+    private val onClickListener: (String) -> Unit
 ) : RecyclerView.Adapter<SuperheroViewHolder>() {
 
     fun updateList(list: List<SuperheroModel>) {
@@ -24,6 +25,6 @@ class SuperheroAdapter(
     override fun getItemCount() = superheroList.size
 
     override fun onBindViewHolder(holder: SuperheroViewHolder, position: Int) {
-        holder.render(superheroList[position])
+        holder.render(superheroList[position], onClickListener)
     }
 }
