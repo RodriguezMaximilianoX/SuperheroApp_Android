@@ -1,11 +1,13 @@
 package com.example.superheroapp.ui.list.adapter
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.superheroapp.databinding.SuperheroItemBinding
 import com.example.superheroapp.domain.model.SuperheroModel
+import com.example.superheroapp.ui.detail.SuperheroDetailActivity
 
 class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -22,8 +24,11 @@ class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvSuperhero.text = superheroModel.name
 
         binding.root.setOnClickListener {
-            onClickListener(superheroModel.id)
-            Log.i("SuperheroViewHolder", superheroModel.id)
+            val context = itemView.context
+            val intent = Intent(context, SuperheroDetailActivity::class.java).apply {
+                putExtra("SUPERHERO_ID", superheroModel.id)
+            }
+            context.startActivity(intent)
         }
     }
 

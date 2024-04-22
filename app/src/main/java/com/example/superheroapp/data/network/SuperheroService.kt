@@ -1,6 +1,7 @@
 package com.example.superheroapp.data.network
 
 import android.util.Log
+import com.example.superheroapp.data.model.SuperheroDetailResponse
 import com.example.superheroapp.data.model.SuperheroModelResponse
 import javax.inject.Inject
 
@@ -16,5 +17,14 @@ class SuperheroService @Inject constructor(private val superheroApiService: Supe
             emptyList()
         }
     }
+
+    suspend fun getSuperheroDetail(id: String): SuperheroDetailResponse {
+        val response = superheroApiService.getSuperheroID(id)
+        Log.i("SuperheroDetail", response.toString())
+        return if (response.isSuccessful) {
+            response.body() ?: SuperheroDetailResponse()
+        } else {
+            SuperheroDetailResponse()
+        }
 
 }

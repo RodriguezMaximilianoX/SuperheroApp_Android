@@ -1,5 +1,6 @@
 package com.example.superheroapp.ui.list
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroapp.databinding.FragmentSuperheroListBinding
+import com.example.superheroapp.ui.detail.SuperheroDetailActivity
 import com.example.superheroapp.ui.list.adapter.SuperheroAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -32,7 +34,11 @@ class SuperheroListFragment : Fragment() {
 
     private fun setupRecyclerView() {
         adapter = SuperheroAdapter(onClickListener = {
-
+            superheroId ->
+            val intent = Intent(activity, SuperheroDetailActivity::class.java).apply {
+                putExtra(SuperheroDetailActivity.EXTRA_ID, superheroId)
+            }
+            startActivity(intent)
         })
         binding.rvSuperhero.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSuperhero.adapter = adapter

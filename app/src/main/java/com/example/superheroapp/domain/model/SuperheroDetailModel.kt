@@ -13,7 +13,7 @@ data class SuperheroDetailModel(
     val combat: String
 )
 
-fun SuperheroDetailResponse.toDomainModel() : SuperheroDetailModel{
+fun SuperheroDetailResponse.toDomainDetailModel() : SuperheroDetailModel{
     return SuperheroDetailModel(
         name = this.name,
         image = this.image.url,
