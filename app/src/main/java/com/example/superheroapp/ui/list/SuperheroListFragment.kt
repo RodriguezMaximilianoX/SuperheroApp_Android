@@ -33,12 +33,8 @@ class SuperheroListFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter = SuperheroAdapter(onClickListener = {
-            superheroId ->
-            val intent = Intent(activity, SuperheroDetailActivity::class.java).apply {
-                putExtra(SuperheroDetailActivity.EXTRA_ID, superheroId)
-            }
-            startActivity(intent)
+        adapter = SuperheroAdapter(onClickListener = { superheroId ->
+            navigateToDetail(superheroId)
         })
         binding.rvSuperhero.layoutManager = LinearLayoutManager(requireContext())
         binding.rvSuperhero.adapter = adapter
@@ -70,6 +66,12 @@ class SuperheroListFragment : Fragment() {
     ): View {
         _binding = FragmentSuperheroListBinding.inflate(layoutInflater, container, false)
         return binding.root
+    }
+
+    private fun navigateToDetail(id: String) {
+        val intent = Intent(requireContext(), SuperheroDetailActivity::class.java)
+        intent.putExtra(SuperheroDetailActivity.EXTRA_ID, id)
+        startActivity(intent)
     }
 
 }

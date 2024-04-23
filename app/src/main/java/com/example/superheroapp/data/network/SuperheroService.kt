@@ -1,8 +1,10 @@
 package com.example.superheroapp.data.network
 
 import android.util.Log
+import com.example.superheroapp.data.model.SuperheroDetailImage
 import com.example.superheroapp.data.model.SuperheroDetailResponse
 import com.example.superheroapp.data.model.SuperheroModelResponse
+import com.example.superheroapp.data.model.SuperheroPowerstats
 import javax.inject.Inject
 
 class SuperheroService @Inject constructor(private val superheroApiService: SuperheroApiService) {
@@ -20,11 +22,26 @@ class SuperheroService @Inject constructor(private val superheroApiService: Supe
 
     suspend fun getSuperheroDetail(id: String): SuperheroDetailResponse {
         val response = superheroApiService.getSuperheroID(id)
-        Log.i("SuperheroDetail", response.toString())
-        return if (response.isSuccessful) {
-            response.body() ?: SuperheroDetailResponse()
+        Log.i("Response Detail", response.toString())
+        return if(response.isSuccessful) {
+            Log.i("SuperheroDetailTrue", response.body().toString())
+            response.body()!!
         } else {
-            SuperheroDetailResponse()
+            SuperheroDetailResponse(
+                name = "Unknown",
+                powerstats = SuperheroPowerstats(
+                    intelligence = "0",
+                    strength = "0",
+                    speed = "0",
+                    durability = "0",
+                    power = "0",
+                    combat = "0"
+                ),
+                image = SuperheroDetailImage(
+                    url = "default_url"
+                )
+            )
         }
+    }
 
 }

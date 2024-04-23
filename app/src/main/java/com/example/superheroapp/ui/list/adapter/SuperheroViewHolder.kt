@@ -24,11 +24,7 @@ class SuperheroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.tvSuperhero.text = superheroModel.name
 
         binding.root.setOnClickListener {
-            val context = itemView.context
-            val intent = Intent(context, SuperheroDetailActivity::class.java).apply {
-                putExtra("SUPERHERO_ID", superheroModel.id)
-            }
-            context.startActivity(intent)
+            onClickListener(superheroModel.id)
         }
     }
 

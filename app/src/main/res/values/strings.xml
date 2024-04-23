@@ -2,4 +2,11 @@
     <string name="app_name">SuperheroApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="superherodetailimage">SuperheroDetailImage</string>
+    <string name="superhero_stat_intelligence">Intelligence</string>
+    <string name="superhero_stat_strength">Strength</string>
+    <string name="superhero_stat_speed">Speed</string>
+    <string name="superhero_stat_durability">Durability</string>
+    <string name="superhero_stat_power">Power</string>
+    <string name="superhero_stat_combat">Combat</string>
 </resources>

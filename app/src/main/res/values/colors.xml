@@ -3,4 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="backgroundTitle">#C87F5CBD</color>
+
+    <color name="superhero_item_name">#8D673AB7</color>
+    <color name="superhero_stat_intelligence">#00FF0A</color>
+    <color name="superhero_stat_strength">#FF0000</color>
+    <color name="superhero_stat_speed">#FF3D00</color>
+    <color name="superhero_stat_durability">#0027FF</color>
+    <color name="superhero_stat_power">#FFE500</color>
+    <color name="superhero_stat_combat">#5C00FF</color>
 </resources>
